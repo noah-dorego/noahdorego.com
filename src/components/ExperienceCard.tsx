@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/
 
 interface ExperienceCardProps {
   logo?: string;
-  jobTitle: string;
   companyName: string;
+  jobTitle: string;
   bulletPoints: string[];
 }
 
-function ExperienceCard({ logo, jobTitle, companyName, bulletPoints }: ExperienceCardProps) {
+function ExperienceCard({ logo, companyName, jobTitle, bulletPoints }: ExperienceCardProps) {
   return (
     <Card className="w-full h-full">
       <CardHeader className="text-center pb-4">
@@ -24,14 +24,12 @@ function ExperienceCard({ logo, jobTitle, companyName, bulletPoints }: Experienc
           </div>
         )}
         
-        {/* Job Title */}
         <CardTitle className="text-xl font-bold mb-2">
-          {jobTitle}
+          {companyName}
         </CardTitle>
         
-        {/* Company Name */}
         <CardDescription className="text-base">
-          {companyName}
+          {jobTitle}
         </CardDescription>
       </CardHeader>
       

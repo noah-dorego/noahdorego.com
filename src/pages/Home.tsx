@@ -1,4 +1,4 @@
-import { Typography, Carousel } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
 import { TypeAnimation } from "react-type-animation";
 import { BsChevronCompactDown, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -7,6 +7,10 @@ import { useState, useEffect } from "react";
 import headshotImage from "../assets/images/misc/headshot.png";
 import project1Image from "../assets/images/misc/sideline_background.png";
 import project2Image from "../assets/images/games/terrible-taxi.png";
+import solaceLogo from "../assets/logos/solace.jpg";
+import kinaxisLogo from "../assets/logos/kinaxis.jpg";
+import nokiaLogo from "../assets/logos/nokia.png";
+import fieldEffectLogo from "../assets/logos/field_effect_software.jpg";
 
 // Components
 import { ContactIcons, ExperienceCard } from "../index.ts";
@@ -139,14 +143,12 @@ function Home() {
         <span style={{ width: "3vw" }} />
         {/* TITLE */}
         <div className="min-w-fit max-w-fit ml-auto md:ml-0 mr-auto md:mr-0 mt-0 md:mt-[8vh] mb-[100px] md:mb-0">
-          <Typography
-            variant="h1"
+          <h1
             className="mt-5 font-extrabold text-[36px] sm:text-[44px] md:text-[6vw]"
           >
             Noah do Régo
-          </Typography>
-          <Typography
-            variant="lead"
+          </h1>
+          <h1
             className="text-md font-light text-[22px] md:text-[3vw] text-center md:text-start"
           >
             <TypeAnimation
@@ -167,7 +169,7 @@ function Home() {
               style={{ display: "inline-block" }}
               repeat={Infinity}
             />
-          </Typography>
+          </h1>
           <div className="flex items-center gap-3 sm:gap-8 max-w-full justify-center md:justify-start mt-[2vw]">
             <ContactIcons />
           </div>
@@ -202,8 +204,7 @@ function Home() {
       </div>
       <div className="flex md:h-[90vh] h-[20vh] snap-start">
         <div id="bio" className="flex items-center justify-center">
-          <Typography
-            variant="paragraph"
+          <p
             className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify"
           >
             Hey! 👋🏽 I'm Noah- a
@@ -217,7 +218,7 @@ function Home() {
             <b className="font-extrabold">modern technology</b> 💡 in general.
             I'll always be working on one project or another, feel free to reach
             out!
-          </Typography>
+          </p>
         </div>
       </div>
       <div className="md:flex hidden left-auto bottom-0 w-screen h-[10vh] justify-center">
@@ -249,13 +250,12 @@ function Home() {
       </div>
       <div className="flex md:h-[90vh] h-[20vh] items-center justify-center snap-start">
         <div>
-          <Typography
-            variant="h1"
+          <h1
             className="font-extrabold text-center"
             style={{ fontSize: "3.5vw" }}
           >
             Experience
-          </Typography>
+          </h1>
           <hr className="mx-[50vw] w-24 mb-7 rounded border-blue-gray-600 dark:border-white" />
           <div
             id="experience"
@@ -279,8 +279,9 @@ function Home() {
              >
                <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <ExperienceCard
-                  jobTitle="Software Developer"
-                  companyName="TechCorp Inc."
+                  logo={solaceLogo}
+                  jobTitle="Fullstack Developer Intern"
+                  companyName="Solace"
                   bulletPoints={[
                     "Developed and maintained web applications using React and Node.js",
                     "Collaborated with cross-functional teams to deliver high-quality software",
@@ -291,8 +292,9 @@ function Home() {
 
                              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                  <ExperienceCard
-                   jobTitle="Frontend Developer"
-                   companyName="Digital Solutions Ltd."
+                   logo={kinaxisLogo}
+                   jobTitle="Software Developer Intern"
+                   companyName="Kinaxis"
                    bulletPoints={[
                      "Built user interfaces with modern JavaScript frameworks",
                      "Optimized application performance and user experience",
@@ -303,8 +305,9 @@ function Home() {
                
                <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                  <ExperienceCard
-                   jobTitle="Game Developer"
-                   companyName="Pixel Studios"
+                   logo={nokiaLogo}
+                   jobTitle="Software Developer Intern"
+                   companyName="Nokia"
                    bulletPoints={[
                      "Developed game mechanics and systems using Unity",
                      "Created engaging user experiences and interactive elements",
@@ -315,8 +318,9 @@ function Home() {
                
                <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                  <ExperienceCard
-                   jobTitle="Full Stack Engineer"
-                   companyName="Innovation Labs"
+                   logo={fieldEffectLogo}
+                   jobTitle="Frontend Developer Intern"
+                   companyName="Field Effect Software"
                    bulletPoints={[
                      "Architected and deployed scalable web applications",
                      "Led development of microservices using Docker and Kubernetes",
@@ -327,8 +331,9 @@ function Home() {
                
                <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                  <ExperienceCard
-                   jobTitle="Mobile App Developer"
-                   companyName="AppWorks"
+                   logo={fieldEffectLogo}
+                   jobTitle="Software Developer Intern"
+                   companyName="Field Effect Software"
                    bulletPoints={[
                      "Built cross-platform mobile applications using React Native",
                      "Integrated third-party APIs and payment gateways",
@@ -380,13 +385,12 @@ function Home() {
       </div>
       <div className="md:h-screen h-[50vh] flex items-center justify-center snap-start mt-[100px] md:mt-0">
         <div>
-          <Typography
-            variant="h1"
+          <h1
             className="font-extrabold text-center"
             style={{ fontSize: "3.5vw" }}
           >
             Featured Projects
-          </Typography>
+          </h1>
           <hr className="mx-[50vw] w-24 mb-7 rounded border-blue-gray-600 dark:border-white" />
           <div
             id="project-gallery"
@@ -405,13 +409,13 @@ function Home() {
                   />
                   <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
                     <div>
-                      <Typography variant="h2" color="white">
+                      <h2 className="text-white">
                         Sideline
-                      </Typography>
-                      <Typography className="mt-2 font-normal" color="white">
+                      </h2>
+                      <p className="mt-2 font-normal" color="white">
                         A program that automatically generates sports highlight
                         videos
-                      </Typography>
+                      </p>
                     </div>
                   </figcaption>
                 </figure>
@@ -425,13 +429,13 @@ function Home() {
                   />
                   <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
                     <div>
-                      <Typography variant="h2" color="white">
+                      <h2 className="text-white">
                         Terrible Taxi
-                      </Typography>
-                      <Typography color="white" className="mt-2 font-normal">
+                      </h2>
+                      <p className="mt-2 font-normal" color="white">
                         A low-poly cartoonish game about being an abysmal taxi
                         driver
-                      </Typography>
+                      </p>
                     </div>
                   </figcaption>
                 </figure>
