@@ -1,6 +1,10 @@
 import { Carousel } from "@material-tailwind/react";
 import { TypeAnimation } from "react-type-animation";
-import { BsChevronCompactDown, BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import {
+  BsChevronCompactDown,
+  BsChevronLeft,
+  BsChevronRight,
+} from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -29,12 +33,12 @@ function Home() {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     checkScrollPosition();
     const container = document.getElementById("experience-container");
     if (container) {
       container.addEventListener("scroll", checkScrollPosition);
-      
+
       // Add keyboard navigation
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "ArrowLeft") {
@@ -45,7 +49,7 @@ function Home() {
           scrollRight();
         }
       };
-      
+
       // Add mouse wheel navigation
       const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
@@ -55,16 +59,16 @@ function Home() {
           scrollLeft();
         }
       };
-      
+
       // Add resize listener to update scroll behavior
       const handleResize = () => {
         checkScrollPosition();
       };
-      
+
       document.addEventListener("keydown", handleKeyDown);
       container.addEventListener("wheel", handleWheel, { passive: false });
       window.addEventListener("resize", handleResize);
-      
+
       return () => {
         container.removeEventListener("scroll", checkScrollPosition);
         document.removeEventListener("keydown", handleKeyDown);
@@ -80,7 +84,7 @@ function Home() {
       // Calculate card width + gap based on screen size
       const isMobile = window.innerWidth < 768; // md breakpoint
       const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024; // lg breakpoint
-      
+
       let cardWidth;
       if (isMobile) {
         // 1 card: 100% width + gap
@@ -92,7 +96,7 @@ function Home() {
         // 3+ cards: 33.333% width + gap
         cardWidth = container.clientWidth * 0.333333 + 24; // 6px gap on each side
       }
-      
+
       container.scrollBy({ left: -cardWidth, behavior: "smooth" });
     }
   };
@@ -103,7 +107,7 @@ function Home() {
       // Calculate card width + gap based on screen size
       const isMobile = window.innerWidth < 768; // md breakpoint
       const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024; // lg breakpoint
-      
+
       let cardWidth;
       if (isMobile) {
         // 1 card: 100% width + gap
@@ -115,7 +119,7 @@ function Home() {
         // 3+ cards: 33.333% width + gap
         cardWidth = container.clientWidth * 0.333333 + 24; // 6px gap on each side
       }
-      
+
       container.scrollBy({ left: cardWidth, behavior: "smooth" });
     }
   };
@@ -143,14 +147,10 @@ function Home() {
         <span style={{ width: "3vw" }} />
         {/* TITLE */}
         <div className="min-w-fit max-w-fit ml-auto md:ml-0 mr-auto md:mr-0 mt-0 md:mt-[8vh] mb-[100px] md:mb-0">
-          <h1
-            className="mt-5 font-extrabold text-[36px] sm:text-[44px] md:text-[6vw]"
-          >
+          <h1 className="mt-5 font-extrabold text-[36px] sm:text-[44px] md:text-[6vw]">
             Noah do Régo
           </h1>
-          <h1
-            className="text-md font-light text-[22px] md:text-[3vw] text-center md:text-start"
-          >
+          <h1 className="text-md font-light text-[22px] md:text-[3vw] text-center md:text-start">
             <TypeAnimation
               sequence={[
                 "University Student ",
@@ -204,9 +204,7 @@ function Home() {
       </div>
       <div className="flex md:h-[90vh] h-[20vh] snap-start">
         <div id="bio" className="flex items-center justify-center">
-          <p
-            className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify"
-          >
+          <p className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify">
             Hey! 👋🏽 I'm Noah- a
             <b className="font-extrabold"> computer science student</b> 👨🏽‍💻
             currently studying at the <i>University of Ottawa</i> 🏛️. I have
@@ -262,22 +260,23 @@ function Home() {
             className="flex items-center justify-center w-full relative"
           >
             <button
-              className={`bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 ${canScrollLeft
+              className={`bg-white dark:bg-gray-800 rounded-full p-3 mr-2 shadow-lg transition-all duration-200 ${
+                canScrollLeft
                   ? "hover:bg-gray-100 dark:hover:bg-gray-700 opacity-100"
                   : "opacity-50 cursor-not-allowed"
-                }`}
+              }`}
               onClick={scrollLeft}
               disabled={!canScrollLeft}
             >
-              <BsChevronLeft className="w-8 h-8 text-gray-600 dark:text-gray-400" />
+              <BsChevronLeft className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-gray-600 dark:text-gray-400" />
             </button>
 
-                         <div
-               id="experience-container"
-               className="flex gap-4 md:gap-6 w-[90vw] md:w-[80vw] lg:w-[64vw] xl:w-[48vw] overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
-               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-             >
-               <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div
+              id="experience-container"
+              className="flex gap-4 md:gap-6 w-[84vw] overflow-x-auto scroll-smooth snap-x snap-mandatory"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <ExperienceCard
                   logo={solaceLogo}
                   jobTitle="Fullstack Developer Intern"
@@ -285,73 +284,74 @@ function Home() {
                   bulletPoints={[
                     "Developed and maintained web applications using React and Node.js",
                     "Collaborated with cross-functional teams to deliver high-quality software",
-                    "Implemented responsive design principles and modern UI/UX patterns"
+                    "Implemented responsive design principles and modern UI/UX patterns",
                   ]}
                 />
               </div>
 
-                             <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                 <ExperienceCard
-                   logo={kinaxisLogo}
-                   jobTitle="Software Developer Intern"
-                   companyName="Kinaxis"
-                   bulletPoints={[
-                     "Built user interfaces with modern JavaScript frameworks",
-                     "Optimized application performance and user experience",
-                     "Worked with REST APIs and state management solutions"
-                   ]}
-                 />
-               </div>
-               
-               <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                 <ExperienceCard
-                   logo={nokiaLogo}
-                   jobTitle="Software Developer Intern"
-                   companyName="Nokia"
-                   bulletPoints={[
-                     "Developed game mechanics and systems using Unity",
-                     "Created engaging user experiences and interactive elements",
-                     "Collaborated with artists and designers on game features"
-                   ]}
-                 />
-               </div>
-               
-               <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                 <ExperienceCard
-                   logo={fieldEffectLogo}
-                   jobTitle="Frontend Developer Intern"
-                   companyName="Field Effect Software"
-                   bulletPoints={[
-                     "Architected and deployed scalable web applications",
-                     "Led development of microservices using Docker and Kubernetes",
-                     "Mentored junior developers and conducted code reviews"
-                   ]}
-                 />
-               </div>
-               
-               <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                 <ExperienceCard
-                   logo={fieldEffectLogo}
-                   jobTitle="Software Developer Intern"
-                   companyName="Field Effect Software"
-                   bulletPoints={[
-                     "Built cross-platform mobile applications using React Native",
-                     "Integrated third-party APIs and payment gateways",
-                     "Implemented push notifications and real-time features"
-                   ]}
-                 />
-               </div>
+              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <ExperienceCard
+                  logo={kinaxisLogo}
+                  jobTitle="Software Developer Intern"
+                  companyName="Kinaxis"
+                  bulletPoints={[
+                    "Built user interfaces with modern JavaScript frameworks",
+                    "Optimized application performance and user experience",
+                    "Worked with REST APIs and state management solutions",
+                  ]}
+                />
+              </div>
+
+              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <ExperienceCard
+                  logo={nokiaLogo}
+                  jobTitle="Software Developer Intern"
+                  companyName="Nokia"
+                  bulletPoints={[
+                    "Developed game mechanics and systems using Unity",
+                    "Created engaging user experiences and interactive elements",
+                    "Collaborated with artists and designers on game features",
+                  ]}
+                />
+              </div>
+
+              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <ExperienceCard
+                  logo={fieldEffectLogo}
+                  jobTitle="Frontend Developer Intern"
+                  companyName="Field Effect Software"
+                  bulletPoints={[
+                    "Architected and deployed scalable web applications",
+                    "Led development of microservices using Docker and Kubernetes",
+                    "Mentored junior developers and conducted code reviews",
+                  ]}
+                />
+              </div>
+
+              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <ExperienceCard
+                  logo={fieldEffectLogo}
+                  jobTitle="Software Developer Intern"
+                  companyName="Field Effect Software"
+                  bulletPoints={[
+                    "Built cross-platform mobile applications using React Native",
+                    "Integrated third-party APIs and payment gateways",
+                    "Implemented push notifications and real-time features",
+                  ]}
+                />
+              </div>
             </div>
 
             <button
-              className={`bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 ${canScrollRight
+              className={`bg-white dark:bg-gray-800 rounded-full p-3 ml-2 shadow-lg transition-all duration-200 ${
+                canScrollRight
                   ? "hover:bg-gray-100 dark:hover:bg-gray-700 opacity-100"
                   : "opacity-50 cursor-not-allowed"
-                }`}
+              }`}
               onClick={scrollRight}
               disabled={!canScrollRight}
             >
-              <BsChevronRight className="w-8 h-8 text-gray-600 dark:text-gray-400" />
+              <BsChevronRight className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-gray-600 dark:text-gray-400" />
             </button>
           </div>
         </div>
@@ -409,9 +409,7 @@ function Home() {
                   />
                   <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
                     <div>
-                      <h2 className="text-white">
-                        Sideline
-                      </h2>
+                      <h2 className="text-white">Sideline</h2>
                       <p className="mt-2 font-normal" color="white">
                         A program that automatically generates sports highlight
                         videos
@@ -429,9 +427,7 @@ function Home() {
                   />
                   <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
                     <div>
-                      <h2 className="text-white">
-                        Terrible Taxi
-                      </h2>
+                      <h2 className="text-white">Terrible Taxi</h2>
                       <p className="mt-2 font-normal" color="white">
                         A low-poly cartoonish game about being an abysmal taxi
                         driver
