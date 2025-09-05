@@ -1,4 +1,10 @@
-import { Carousel } from "@material-tailwind/react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { TypeAnimation } from "react-type-animation";
 import {
   BsChevronCompactDown,
@@ -396,46 +402,51 @@ function Home() {
             id="project-gallery"
             className="flex items-center justify-center w-full"
           >
-            <Carousel
-              transition={{ duration: 1 }}
-              className="rounded-xl w-[80vw] lg:w-[60vw] md:h-[400px] lg:h-[600px] h-[300px]"
-            >
-              <a href="https://github.com/noah-dorego/Sideline">
-                <figure className="relative h-full w-full">
-                  <img
-                    src={project1Image}
-                    alt="image 1"
-                    className="h-full w-full object-cover"
-                  />
-                  <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
-                    <div>
-                      <h2 className="text-white">Sideline</h2>
-                      <p className="mt-2 font-normal" color="white">
-                        A program that automatically generates sports highlight
-                        videos
-                      </p>
-                    </div>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="https://itsdeego.itch.io/terrible-taxi">
-                <figure className="relative h-full w-full">
-                  <img
-                    src={project2Image}
-                    alt="image 2"
-                    className="h-full w-full object-cover"
-                  />
-                  <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
-                    <div>
-                      <h2 className="text-white">Terrible Taxi</h2>
-                      <p className="mt-2 font-normal" color="white">
-                        A low-poly cartoonish game about being an abysmal taxi
-                        driver
-                      </p>
-                    </div>
-                  </figcaption>
-                </figure>
-              </a>
+            <Carousel className="rounded-xl w-[80vw] lg:w-[60vw] md:h-[400px] lg:h-[600px] h-[300px]">
+              <CarouselContent>
+                <CarouselItem>
+                  <a href="https://github.com/noah-dorego/Sideline">
+                    <figure className="relative h-full w-full">
+                      <img
+                        src={project1Image}
+                        alt="image 1"
+                        className="h-full w-full object-cover"
+                      />
+                      <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
+                        <div>
+                          <h2 className="text-white">Sideline</h2>
+                          <p className="mt-2 font-normal" color="white">
+                            A program that automatically generates sports
+                            highlight videos
+                          </p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </a>
+                </CarouselItem>
+                <CarouselItem>
+                  <a href="https://itsdeego.itch.io/terrible-taxi">
+                    <figure className="relative h-full w-full">
+                      <img
+                        src={project2Image}
+                        alt="image 2"
+                        className="h-full w-full object-cover"
+                      />
+                      <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
+                        <div>
+                          <h2 className="text-white">Terrible Taxi</h2>
+                          <p className="mt-2 font-normal" color="white">
+                            A low-poly cartoonish game about being an abysmal
+                            taxi driver
+                          </p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </a>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
             </Carousel>
           </div>
         </div>
