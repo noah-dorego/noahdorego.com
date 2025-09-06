@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+/* SIMPLE DIRECT APPROACH - NO CSS VARIABLES */
+@layer base {
+  /* Light mode default */
+  body {
+    @apply bg-white text-black;
+  }
+
+  /* Dark mode - DIRECT STYLES */
+  .dark {
+    background-color: #1a1a1a !important;
+    color: white !important;
+  }
+
+  .dark * {
+    color: white !important;
+  }
+}

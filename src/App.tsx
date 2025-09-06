@@ -5,7 +5,7 @@ import { NavBar } from "./index.ts";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <BrowserRouter>
         <NavBar />
         <div className="flex flex-col justify-between">

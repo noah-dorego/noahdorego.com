@@ -24,8 +24,10 @@ import fieldEffectLogo from "../assets/logos/field_effect_software.jpg";
 
 // Components
 import { ContactIcons, ExperienceCard } from "../index.ts";
+import { useTheme } from "@/components/ThemeProvider.tsx";
 
 function Home() {
+  const { theme } = useTheme();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -132,10 +134,12 @@ function Home() {
 
   return (
     <div
-      className="md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden max-h-screen"
+      className="md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden max-h-screen text-foreground"
       style={{
         backgroundImage:
-          "radial-gradient(125% 125% at 50% 0%, transparent 50%, grey)",
+          theme === "light"
+            ? "radial-gradient(125% 125% at 50% 0%, transparent 50%, grey)"
+            : "radial-gradient(125% 125% at 50% 0%, #333333, black)",
         scrollbarWidth: "none",
       }}
       id="container"
@@ -152,11 +156,11 @@ function Home() {
         {/* SPACER */}
         <span style={{ width: "3vw" }} />
         {/* TITLE */}
-        <div className="min-w-fit max-w-fit ml-auto md:ml-0 mr-auto md:mr-0 mt-0 md:mt-[8vh] mb-[100px] md:mb-0">
-          <h1 className="mt-5 font-extrabold text-[36px] sm:text-[44px] md:text-[6vw]">
+        <div className="min-w-fit max-w-fit ml-auto md:ml-0 mr-auto md:mr-0 mt-0 md:mt-[8vh] mb-[50px] md:mb-0">
+          <h1 className="mt-5 font-extrabold text-[36px] sm:text-[44px] md:text-[6vw] text-foreground">
             Noah do Régo
           </h1>
-          <h1 className="text-md font-light text-[22px] md:text-[3vw] text-center md:text-start">
+          <h1 className="text-md font-light text-[22px] md:text-[3vw] text-center md:text-start text-foreground">
             <TypeAnimation
               sequence={[
                 "University Student ",
@@ -196,7 +200,7 @@ function Home() {
           }}
         >
           <BsChevronCompactDown
-            className="h-[4vw] w-[4vw] text-black dark:text-white"
+            className="h-[4vw] w-[4vw] text-foreground"
             onClick={() => {
               const bio_div = document.getElementById("bio");
               const container = document.getElementById("container");
@@ -210,7 +214,7 @@ function Home() {
       </div>
       <div className="flex md:h-[90vh] h-[20vh] snap-start">
         <div id="bio" className="flex items-center justify-center">
-          <p className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify">
+          <p className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify text-foreground">
             Hey! 👋🏽 I'm Noah- a
             <b className="font-extrabold"> computer science student</b> 👨🏽‍💻
             currently studying at the <i>University of Ottawa</i> 🏛️. I have
@@ -240,7 +244,7 @@ function Home() {
           }}
         >
           <BsChevronCompactDown
-            className="h-[4vw] w-[4vw] text-black dark:text-white"
+            className="h-[4vw] w-[4vw] text-foreground"
             onClick={() => {
               const experience_div = document.getElementById("experience");
               const container = document.getElementById("container");
@@ -252,114 +256,100 @@ function Home() {
           />
         </motion.div>
       </div>
-      <div className="flex md:h-[90vh] h-[20vh] items-center justify-center snap-start">
-        <div>
-          <h1
-            className="font-extrabold text-center"
-            style={{ fontSize: "3.5vw" }}
+      <div className="flex-col md:h-[90vh] snap-start px-2 pt-8">
+        <h1
+          className="font-extrabold text-center text-foreground"
+          style={{ fontSize: "3.5vw" }}
+        >
+          Experience
+        </h1>
+        <hr className="w-24 mb-7 rounded border-border mx-auto" />
+        <div
+          id="experience"
+          className="flex items-center justify-center w-full"
+        >
+          <button
+            className={`bg-card rounded-full p-3 mr-2 shadow-lg transition-all duration-200 ${
+              canScrollLeft
+                ? "hover:bg-muted opacity-100"
+                : "opacity-50 cursor-not-allowed"
+            }`}
+            onClick={scrollLeft}
+            disabled={!canScrollLeft}
           >
-            Experience
-          </h1>
-          <hr className="mx-[50vw] w-24 mb-7 rounded border-blue-gray-600 dark:border-white" />
+            <BsChevronLeft className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-muted-foreground" />
+          </button>
+
           <div
-            id="experience"
-            className="flex items-center justify-center w-full relative"
+            id="experience-container"
+            className="flex gap-4 md:gap-6 w-[84vw] overflow-x-auto scroll-smooth snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <button
-              className={`bg-white dark:bg-gray-800 rounded-full p-3 mr-2 shadow-lg transition-all duration-200 ${
-                canScrollLeft
-                  ? "hover:bg-gray-100 dark:hover:bg-gray-700 opacity-100"
-                  : "opacity-50 cursor-not-allowed"
-              }`}
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-            >
-              <BsChevronLeft className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-gray-600 dark:text-gray-400" />
-            </button>
-
-            <div
-              id="experience-container"
-              className="flex gap-4 md:gap-6 w-[84vw] overflow-x-auto scroll-smooth snap-x snap-mandatory"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ExperienceCard
-                  logo={solaceLogo}
-                  jobTitle="Fullstack Developer Intern"
-                  companyName="Solace"
-                  bulletPoints={[
-                    "Developed and maintained web applications using React and Node.js",
-                    "Collaborated with cross-functional teams to deliver high-quality software",
-                    "Implemented responsive design principles and modern UI/UX patterns",
-                  ]}
-                />
-              </div>
-
-              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ExperienceCard
-                  logo={kinaxisLogo}
-                  jobTitle="Software Developer Intern"
-                  companyName="Kinaxis"
-                  bulletPoints={[
-                    "Built user interfaces with modern JavaScript frameworks",
-                    "Optimized application performance and user experience",
-                    "Worked with REST APIs and state management solutions",
-                  ]}
-                />
-              </div>
-
-              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ExperienceCard
-                  logo={nokiaLogo}
-                  jobTitle="Software Developer Intern"
-                  companyName="Nokia"
-                  bulletPoints={[
-                    "Developed game mechanics and systems using Unity",
-                    "Created engaging user experiences and interactive elements",
-                    "Collaborated with artists and designers on game features",
-                  ]}
-                />
-              </div>
-
-              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ExperienceCard
-                  logo={fieldEffectLogo}
-                  jobTitle="Frontend Developer Intern"
-                  companyName="Field Effect Software"
-                  bulletPoints={[
-                    "Architected and deployed scalable web applications",
-                    "Led development of microservices using Docker and Kubernetes",
-                    "Mentored junior developers and conducted code reviews",
-                  ]}
-                />
-              </div>
-
-              <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <ExperienceCard
-                  logo={fieldEffectLogo}
-                  jobTitle="Software Developer Intern"
-                  companyName="Field Effect Software"
-                  bulletPoints={[
-                    "Built cross-platform mobile applications using React Native",
-                    "Integrated third-party APIs and payment gateways",
-                    "Implemented push notifications and real-time features",
-                  ]}
-                />
-              </div>
+            <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <ExperienceCard
+                logo={solaceLogo}
+                jobTitle="Fullstack Developer Intern"
+                companyName="Solace"
+                bulletPoints={[
+                  "Worked on bugs and stories involving developing React components and Springboot logic",
+                  "Implemented and demoed feature for AI EDA-designer to provision operational event brokers",
+                  "Built an agentic Jira sprint planner using SAM framework and custom RAG agents during company hackathon",
+                ]}
+              />
             </div>
 
-            <button
-              className={`bg-white dark:bg-gray-800 rounded-full p-3 ml-2 shadow-lg transition-all duration-200 ${
-                canScrollRight
-                  ? "hover:bg-gray-100 dark:hover:bg-gray-700 opacity-100"
-                  : "opacity-50 cursor-not-allowed"
-              }`}
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-            >
-              <BsChevronRight className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-gray-600 dark:text-gray-400" />
-            </button>
+            <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <ExperienceCard
+                logo={kinaxisLogo}
+                jobTitle="Software Developer Intern"
+                companyName="Kinaxis"
+                bulletPoints={[
+                  "Worked on web client and development of the calendar component fixing critical bugs and developing tests",
+                  "Built RAG-based AI chatbot  using OpenAI + Chroma DB to retrieve Jira ticket insights through MS Teams",
+                  "Improved hierarchy selection performance from O(n*m) to O(n) by refactoring intensive code",
+                ]}
+              />
+            </div>
+
+            <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <ExperienceCard
+                logo={nokiaLogo}
+                jobTitle="Software Developer Intern"
+                companyName="Nokia"
+                bulletPoints={[
+                  "Worked as a member of the frontend scrum team, worked on issues and developed features of the test case management system (UI improvements, endpoint integration, new functionality)",
+                  "Implemented new feature involving the management of test bench elements",
+                  "Delivered and recorded internal multipart demos of the entire product",
+                ]}
+              />
+            </div>
+
+            <div className="flex-shrink-0 snap-start w-[calc(100%-8px)] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <ExperienceCard
+                logo={fieldEffectLogo}
+                jobTitle="Frontend Developer Intern + Software Developer Intern"
+                companyName="Field Effect Software"
+                bulletPoints={[
+                  "Researched and recommended learning management systems (LMS) integration standards and created a prototype using MERN stack",
+                  "Added LMS integration to the platform's cyber range and delivered a company-wide demo of the MVP",
+                  "Refactored websocket implementation using custom React hooks",
+                  "Updated settings page UI with new REST API endpoints and implemented custom WYSIWYG editor",
+                ]}
+              />
+            </div>
           </div>
+
+          <button
+            className={`bg-card rounded-full p-3 ml-2 shadow-lg transition-all duration-200 ${
+              canScrollRight
+                ? "hover:bg-muted opacity-100"
+                : "opacity-50 cursor-not-allowed"
+            }`}
+            onClick={scrollRight}
+            disabled={!canScrollRight}
+          >
+            <BsChevronRight className="w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 text-muted-foreground" />
+          </button>
         </div>
       </div>
       <div className="md:flex hidden left-auto bottom-0 w-screen h-[10vh] justify-center">
@@ -377,7 +367,7 @@ function Home() {
           }}
         >
           <BsChevronCompactDown
-            className="h-[4vw] w-[4vw] text-black dark:text-white"
+            className="h-[4vw] w-[4vw] text-foreground"
             onClick={() => {
               const projects_div = document.getElementById("project-gallery");
               const container = document.getElementById("container");
@@ -389,15 +379,15 @@ function Home() {
           />
         </motion.div>
       </div>
-      <div className="md:h-screen h-[50vh] flex items-center justify-center snap-start mt-[100px] md:mt-0">
+      <div className="md:h-screen h-[50vh] flex items-center justify-center snap-start">
         <div>
           <h1
-            className="font-extrabold text-center"
+            className="font-extrabold text-center text-foreground"
             style={{ fontSize: "3.5vw" }}
           >
             Featured Projects
           </h1>
-          <hr className="mx-[50vw] w-24 mb-7 rounded border-blue-gray-600 dark:border-white" />
+          <hr className="mx-[50vw] w-24 mb-7 rounded border-border" />
           <div
             id="project-gallery"
             className="flex items-center justify-center w-full"

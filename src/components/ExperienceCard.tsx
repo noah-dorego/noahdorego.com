@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "./ui/card";
 
 interface ExperienceCardProps {
   logo?: string;
@@ -7,9 +13,14 @@ interface ExperienceCardProps {
   bulletPoints: string[];
 }
 
-function ExperienceCard({ logo, companyName, jobTitle, bulletPoints }: ExperienceCardProps) {
+function ExperienceCard({
+  logo,
+  companyName,
+  jobTitle,
+  bulletPoints,
+}: ExperienceCardProps) {
   return (
-    <Card className="w-full h-full">
+    <Card className="w-full h-[70vh]">
       <CardHeader className="text-center pb-4">
         {/* Company Logo */}
         {logo ? (
@@ -20,17 +31,15 @@ function ExperienceCard({ logo, companyName, jobTitle, bulletPoints }: Experienc
           />
         ) : (
           <div className="w-20 h-20 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span className="text-gray-500 dark:text-gray-400 text-sm">Logo</span>
+            <span className="text-gray-500 dark:text-gray-400 text-sm">
+              Logo
+            </span>
           </div>
         )}
-        
-        <CardTitle className="text-xl font-bold mb-2">
-          {companyName}
-        </CardTitle>
-        
-        <CardDescription className="text-base">
-          {jobTitle}
-        </CardDescription>
+
+        <CardTitle className="text-xl font-bold mb-2">{companyName}</CardTitle>
+
+        <CardDescription className="text-base">{jobTitle}</CardDescription>
       </CardHeader>
       
       <CardContent>
