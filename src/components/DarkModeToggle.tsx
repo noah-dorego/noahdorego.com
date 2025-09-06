@@ -1,4 +1,4 @@
-import { FaRegSun, FaRegMoon } from "react-icons/fa";
+import { LuSun, LuMoon } from "react-icons/lu";
 
 import { useTheme } from "@/components/ThemeProvider";
 
@@ -15,9 +15,9 @@ export function DarkModeToggle() {
       className="cursor-pointer justify-center items-center p-3"
     >
       {theme === "light" ? (
-        <FaRegSun className="text-foreground md:h-7 md:w-7 h-6 w-6" />
+        <LuSun className="text-foreground md:h-7 md:w-7 h-6 w-6" />
       ) : (
-        <FaRegMoon className="text-foreground h-[2vw] w-[2vw]" />
+        <LuMoon className="text-foreground h-[2vw] w-[2vw]" />
       )}
     </div>
   );
