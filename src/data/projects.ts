@@ -33,7 +33,7 @@ const projectsData = [
   {
     title: "Booker",
     image: bookerImage,
-    desc: "A fullstack application for booking hotels made with a friend as a university project (private repo)",
+    desc: "A fullstack application for booking hotels made in a university group project",
     link: "https://github.com/noah-dorego/Booker",
   },
   {

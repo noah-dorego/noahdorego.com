@@ -1,22 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ThemeProvider } from "@material-tailwind/react";
+import { ThemeProvider } from "@/components/ThemeProvider.tsx";
 import { BlogPage, GamesPage, HomePage, ProjectsPage } from "./index.ts";
 import { NavBar } from "./index.ts";
 
 function App() {
-  const customTheme = {
-    // Custom Progress Bars
-    progress: {
-      defaultProps: {
-        barProps: {
-          className: "bg-gradient-to-r from-green-300 to-blue-200",
-        },
-      },
-    },
-  };
-
   return (
-    <ThemeProvider value={customTheme}>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <BrowserRouter>
         <NavBar />
         <div className="flex flex-col justify-between">

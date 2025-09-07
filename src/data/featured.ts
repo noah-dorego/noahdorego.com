@@ -1,19 +1,19 @@
-import featuredProjectImage from "../assets/images/projects/oneday.png";
-import featuredVideoImage from "../assets/images/videos/terrible_taxi_1_thumbnail.png";
+import sidelineImage from "../assets/images/misc/sideline_background.png";
+import terribleTaxiImage from "../assets/images/games/terrible-taxi.png";
 
-const featuredItems = {
-  project: {
-    title: "OneDay",
-    image: featuredProjectImage,
-    desc: "A minimalist, simplified daily planner app made with React Native",
-    link: "https://play.google.com/store/apps/details?id=com.expo.oneday",
+const featuredProjects = [
+  {
+    title: "Sideline",
+    image: sidelineImage,
+    desc: "A program that automatically generates sports highlight videos",
+    link: "https://github.com/noah-dorego/Sideline",
   },
-  video: {
-    title: "Terrible Taxi Devlog 1",
-    image: featuredVideoImage,
-    desc: "A devlog about a cartoon taxi game I'm building in Unity",
-    link: "https://youtu.be/c8v2tGQi_28",
+  {
+    title: "Terrible Taxi",
+    image: terribleTaxiImage,
+    desc: "A low-poly cartoonish game about being an abysmal taxi driver",
+    link: "https://itsdeego.itch.io/terrible-taxi",
   },
-};
+];
 
-export default featuredItems;
+export default featuredProjects;

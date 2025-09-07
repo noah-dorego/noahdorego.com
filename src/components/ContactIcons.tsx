@@ -1,11 +1,5 @@
 import { FiGithub } from "react-icons/fi";
-import {
-  FaMediumM,
-  FaYoutube,
-  FaItchIo,
-  FaLinkedinIn,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaMediumM, FaItchIo, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
 function ContactIcons() {
   return (
@@ -18,11 +12,6 @@ function ContactIcons() {
       <a href="https://www.linkedin.com/in/noah-do-rego/" target="_blank">
         <div className="rounded-full w-[4.5vw] h-[4.5vw] bg-[#3f7bdd] flex justify-center items-center">
           <FaLinkedinIn className="h-[2vw] w-[2vw] text-white" />
-        </div>
-      </a>
-      <a href="https://www.youtube.com/@its_deego" target="_blank">
-        <div className="rounded-full w-[4.5vw] h-[4.5vw] bg-[#c4302b] flex justify-center items-center">
-          <FaYoutube className="h-[2vw] w-[2vw] text-white" />
         </div>
       </a>
       <a href="https://noah-dorego.medium.com/" target="_blank">
