@@ -20,7 +20,7 @@ function ExperienceCard({
   bulletPoints,
 }: ExperienceCardProps) {
   return (
-    <Card className="w-full h-[70vh] min-h-[540px]">
+    <Card className="w-full sm:h-[70vh] h-[450px]">
       <CardHeader className="text-center pb-4">
         {/* Company Logo */}
         {logo ? (
