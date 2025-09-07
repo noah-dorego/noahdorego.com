@@ -17,7 +17,7 @@ export function DarkModeToggle() {
       {theme === "light" ? (
         <LuSun className="text-foreground md:h-7 md:w-7 h-6 w-6" />
       ) : (
-        <LuMoon className="text-foreground h-[2vw] w-[2vw]" />
+        <LuMoon className="text-foreground md:h-7 md:w-7 h-6 w-6" />
       )}
     </div>
   );

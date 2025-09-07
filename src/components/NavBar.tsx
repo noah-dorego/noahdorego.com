@@ -102,7 +102,7 @@ export default function MainNavBar() {
       <div
         className={`md:hidden ${
           openNav ? "block" : "hidden"
-        } absolute top-full left-0 right-0 bg-background shadow-lg`}
+        } absolute top-full left-0 right-0 ${backgroundClasses} shadow-lg`}
       >
         <div className="flex justify-center p-4">
           <NavList />

@@ -27,7 +27,7 @@ import nokiaLogo from "../assets/logos/nokia.png";
 import fieldEffectLogo from "../assets/logos/field_effect_software.jpg";
 
 // Components
-import { ContactIcons, ExperienceCard } from "../index.ts";
+import { ContactIcons, ExperienceCard, Title } from "../index.ts";
 import { useTheme } from "@/components/ThemeProvider.tsx";
 import featuredProjects from "../data/featured.ts";
 
@@ -149,7 +149,7 @@ function Home() {
       }}
       id="container"
     >
-      <div className="inline md:flex md:h-[90vh] min-h-[600px] mt-8 md:mt-0 items-center justify-center snap-start">
+      <div className="inline md:flex md:h-[90vh] min-h-[400px] mt-8 md:mt-0 items-center justify-center snap-start">
         {/* PHOTO */}
         <div className="w-1/2 md:w-1/4 max-w-md ml-auto md:ml-0 mr-auto md:mr-0 mt-[10vh]">
           <img
@@ -217,7 +217,7 @@ function Home() {
           />
         </motion.div>
       </div>
-      <div className="flex md:h-[90vh] h-[20vh] min-h-[600px] snap-start">
+      <div className="flex h-[20vh] md:h-[90vh] snap-start">
         <div id="bio" className="flex items-center justify-center">
           <p className="sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] w-4/5 lg:w-3/5 font-light text-justify text-foreground">
             Hey! 👋🏽 I'm Noah- a
@@ -261,13 +261,8 @@ function Home() {
           />
         </motion.div>
       </div>
-      <div className="flex-col md:h-[90vh] min-h-[700px] snap-start px-2 pt-[6vh]">
-        <h1
-          className="font-extrabold text-center text-foreground"
-          style={{ fontSize: "3.5vw" }}
-        >
-          Experience
-        </h1>
+      <div className="flex-col md:h-[90vh] snap-start px-2 pt-[6vh]">
+        <Title text="Experience" />
         <hr className="w-24 mb-7 rounded border-border mx-auto" />
         <div
           id="experience"
@@ -384,20 +379,15 @@ function Home() {
           />
         </motion.div>
       </div>
-      <div className="md:h-screen min-h-[600px] flex items-center justify-center snap-start">
+      <div className="md:h-screen h-[500px] flex items-center justify-center snap-start">
         <div>
-          <h1
-            className="font-extrabold text-center text-foreground"
-            style={{ fontSize: "3.5vw" }}
-          >
-            Featured Projects
-          </h1>
+          <Title text="Featured Projects" />
           <hr className="mx-[50vw] w-24 mb-7 rounded border-border" />
           <div
             id="project-gallery"
             className="flex items-center justify-center w-full"
           >
-            <Carousel className="rounded-xl w-[80vw] lg:w-[60vw]">
+            <Carousel className="rounded-xl w-[60vw]">
               <CarouselContent>
                 {featuredProjects.map((project, index) => (
                   <CarouselItem key={index}>
