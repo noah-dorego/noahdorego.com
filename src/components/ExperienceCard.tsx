@@ -20,7 +20,7 @@ function ExperienceCard({
   bulletPoints,
 }: ExperienceCardProps) {
   return (
-    <Card className="w-full h-[70vh]">
+    <Card className="w-full h-[70vh] min-h-[540px]">
       <CardHeader className="text-center pb-4">
         {/* Company Logo */}
         {logo ? (
@@ -41,14 +41,18 @@ function ExperienceCard({
 
         <CardDescription className="text-base">{jobTitle}</CardDescription>
       </CardHeader>
-      
+
       <CardContent>
         {/* Bullet Points */}
-        <ul className="space-y-2">
+        <ul className="space-y-1 sm:space-y-2">
           {bulletPoints.map((point, index) => (
             <li key={index} className="flex items-start">
-              <span className="text-blue-500 mr-2 mt-0.5">•</span>
-              <span className="text-sm leading-relaxed">{point}</span>
+              <span className="text-blue-500 mr-2 mt-0.5 text-[10px] sm:text-sm">
+                •
+              </span>
+              <span className="text-[10px] sm:text-sm leading-relaxed">
+                {point}
+              </span>
             </li>
           ))}
         </ul>
