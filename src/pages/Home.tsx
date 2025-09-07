@@ -5,6 +5,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
 import { TypeAnimation } from "react-type-animation";
 import {
   BsChevronCompactDown,
@@ -15,8 +21,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 import headshotImage from "../assets/images/misc/headshot.png";
-import project1Image from "../assets/images/misc/sideline_background.png";
-import project2Image from "../assets/images/games/terrible-taxi.png";
 import solaceLogo from "../assets/logos/solace.jpg";
 import kinaxisLogo from "../assets/logos/kinaxis.jpg";
 import nokiaLogo from "../assets/logos/nokia.png";
@@ -25,6 +29,7 @@ import fieldEffectLogo from "../assets/logos/field_effect_software.jpg";
 // Components
 import { ContactIcons, ExperienceCard } from "../index.ts";
 import { useTheme } from "@/components/ThemeProvider.tsx";
+import featuredProjects from "../data/featured.ts";
 
 function Home() {
   const { theme } = useTheme();
@@ -394,46 +399,35 @@ function Home() {
           >
             <Carousel className="rounded-xl w-[80vw] lg:w-[60vw]">
               <CarouselContent>
-                <CarouselItem>
-                  <a href="https://github.com/noah-dorego/Sideline">
-                    <figure className="relative h-full w-full">
-                      <img
-                        src={project1Image}
-                        alt="image 1"
-                        className="h-full w-full object-cover"
-                      />
-                      <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
-                        <div>
-                          <h2 className="text-white">Sideline</h2>
-                          <p className="mt-2 font-normal" color="white">
-                            A program that automatically generates sports
-                            highlight videos
-                          </p>
+                {featuredProjects.map((project, index) => (
+                  <CarouselItem key={index}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full"
+                    >
+                      <Card className="h-full border-0 bg-transparent shadow-none overflow-hidden">
+                        <div className="relative h-[300px] lg:h-[400px]">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="h-full w-full object-cover rounded-lg"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg" />
+                          <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <CardTitle className="text-xl lg:text-2xl font-bold mb-2 text-white">
+                              {project.title}
+                            </CardTitle>
+                            <CardDescription className="text-gray-200 text-sm lg:text-base">
+                              {project.desc}
+                            </CardDescription>
+                          </CardContent>
                         </div>
-                      </figcaption>
-                    </figure>
-                  </a>
-                </CarouselItem>
-                <CarouselItem>
-                  <a href="https://itsdeego.itch.io/terrible-taxi">
-                    <figure className="relative h-full w-full">
-                      <img
-                        src={project2Image}
-                        alt="image 2"
-                        className="h-full w-full object-cover"
-                      />
-                      <figcaption className="absolute bottom-0 left-2/4 flex w-full -translate-x-2/4 justify-center text-center bg-gray-900/50 py-4 px-6 pb-10 shadow-lg saturate-200 backdrop-blur-sm">
-                        <div>
-                          <h2 className="text-white">Terrible Taxi</h2>
-                          <p className="mt-2 font-normal" color="white">
-                            A low-poly cartoonish game about being an abysmal
-                            taxi driver
-                          </p>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </a>
-                </CarouselItem>
+                      </Card>
+                    </a>
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />
