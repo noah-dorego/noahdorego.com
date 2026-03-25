@@ -46,7 +46,7 @@ function Home() {
           >
             <TypeAnimation
               sequence={[
-                "University Student ",
+                "University Graduate ",
                 1500,
                 "Developer ",
                 1500,
